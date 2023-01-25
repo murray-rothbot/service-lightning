@@ -1,5 +1,5 @@
 import { Controller, Get, Param } from '@nestjs/common'
-import { LightningService } from './lighning.service'
+import { LightningService } from './lightning.service'
 
 @Controller('')
 export class LightningController {
