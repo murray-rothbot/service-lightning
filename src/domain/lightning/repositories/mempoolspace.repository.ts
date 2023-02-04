@@ -45,13 +45,13 @@ export class MempoolSpaceRepository {
   }
 
   async getNode({ pubKey }) {
-    if (pubKey.length != 66) {
+    if (pubKey.length !== 66) {
       const search_url = `${this.baseUrl}/search?searchText=${pubKey}`
       pubKey = await lastValueFrom(
         this.httpService.get(search_url).pipe(
           map((response: AxiosResponse<any>): any => {
             const { nodes } = response.data
-            if (nodes.length == 0) return null
+            if (nodes.length === 0) return null
             const { public_key } = nodes[0]
             return public_key
           }),
