@@ -8,7 +8,10 @@ export const swaggerConfig = async function conf(app: INestApplication): Promise
     .setTitle(cfgService.get<string>('APPLICATION_NAME', ''))
     .setDescription(cfgService.get<string>('APPLICATION_DESCRIPTION', ''))
     .setVersion(cfgService.get<string>('APPLICATION_VERSION', ''))
-    .addBearerAuth()
+    .addTag('default', 'Essential endpoints for monitoring and checking the APIs status.')
+    .addTag('Lightning', 'Endpoints for lightning network information rates.')
+    .setExternalDoc('Github Repository', 'https://github.com/Murray-Rothbot/service-lightning')
+    .setLicense('MIT', 'https://opensource.org/licenses/MIT')
     .build()
 
   const options: SwaggerDocumentOptions = {
