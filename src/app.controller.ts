@@ -1,11 +1,18 @@
-import { Controller, Get, Req } from '@nestjs/common'
+import { Controller, Get } from '@nestjs/common'
 import { AppService } from './app.service'
+import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger'
+import { HealthDto } from './domain/lightning/dto'
 
 @Controller('/')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get('/health')
+  @ApiTags('Server')
+  @ApiOperation({
+    summary: 'Health check.',
+  })
+  @ApiOkResponse({ type: HealthDto })
   async health() {
     return { message: 'OK' }
   }
