@@ -4,6 +4,9 @@
 ## Description
 
 This is a NestJS APIs to provide Lightning endpoints.
+You can find the Swagger documentation at:
+
+https://lightning.murrayrothbot.com/swagger
 
 ## Installation
 
